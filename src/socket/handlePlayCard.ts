@@ -1,12 +1,12 @@
-import { isValidPlay } from "../lib/helpers/cards/isValidPlay";
-import { playCard } from "../lib/helpers/cards/playCard";
-import { turnUpdate } from "../lib/helpers/cards/turnUpdate";
+import { isValidPlay } from "@helpers/cards/isValidPlay";
+import { playCard } from "@helpers/cards/playCard";
+import { turnUpdate } from "@helpers/cards/turnUpdate";
 import {
   getGame,
   getPlayerWithPlayerId,
   sendGameDataToClient,
-} from "../lib/helpers/game";
-import { CustomSocket } from "../types";
+} from "@/lib/helpers/game";
+import { CustomSocket } from "@/types";
 
 export const handlePlayCard = (socket: CustomSocket) => {
   socket.on("playCard", ({ card, roomId }) => {

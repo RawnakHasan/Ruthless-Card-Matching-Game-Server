@@ -1,5 +1,5 @@
-import { io } from "../../../index";
-import type { Game, Player } from "../../../types";
+import { io } from "@/server";
+import type { Game, Player } from "@/types";
 
 export const getNextPlayer = (game: Game): Player => {
   const currentPlayerIndex = game.players.findIndex(

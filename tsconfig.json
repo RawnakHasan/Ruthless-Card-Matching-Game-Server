@@ -17,7 +17,14 @@
 
     // Module resolution
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": false
+    "allowImportingTsExtensions": false,
+
+    // Import Aliasses
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@helpers/*": ["src/lib/helpers/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

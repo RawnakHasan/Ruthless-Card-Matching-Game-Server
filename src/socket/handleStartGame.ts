@@ -1,12 +1,12 @@
-import { io } from "..";
+import { io } from "@/server";
 import {
   dealCardsToPlayer,
   fisherYatesShuffle,
   generateDeck,
   getGame,
   sendGameDataToClient,
-} from "../lib/helpers/game";
-import { CustomSocket } from "../types";
+} from "@helpers/game";
+import { CustomSocket } from "@/types";
 
 export const handleStartGame = (socket: CustomSocket) => {
   socket.on("startGame", ({ roomId }) => {

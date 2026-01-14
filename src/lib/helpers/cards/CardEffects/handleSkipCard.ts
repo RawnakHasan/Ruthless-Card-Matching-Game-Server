@@ -1,5 +1,5 @@
-import type { Game } from "../../../../types";
-import { skipPlayers } from "../../game";
+import type { Game } from "@/types";
+import { skipPlayers } from "@helpers/game";
 
 export const handleSkipCard = (game: Game) => {
   const skippedPlayer = skipPlayers(game);

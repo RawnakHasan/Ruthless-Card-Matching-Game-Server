@@ -1,5 +1,5 @@
-import { io } from "../../..";
-import type { Card, Player } from "../../../types";
+import { io } from "@/server";
+import type { Card, Player } from "@/types";
 
 export const getCardWithCardId = (player: Player, card: Card): Card => {
   const cardWithCardId = player.hand.find((c) => c.id === card.id);

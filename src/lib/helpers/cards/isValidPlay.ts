@@ -1,7 +1,7 @@
-import type { Card, Game } from "../../../types";
-import { getTopCard } from "../game";
-import { isDrawCard } from "./isDrawCard";
-import { canStackOn } from "./canStackOn";
+import type { Card, Game } from "@/types";
+import { getTopCard } from "@helpers/game";
+import { isDrawCard } from "@helpers/cards/isDrawCard";
+import { canStackOn } from "@helpers/cards/canStackOn";
 
 export const isValidPlay = (game: Game, playedCard: Card): boolean => {
   const topCard = getTopCard(game);

@@ -1,5 +1,5 @@
-import type { Card, Game } from "../../../types";
-import { reshuffle } from "./reshuffle";
+import type { Card, Game } from "@/types";
+import { reshuffle } from "@helpers/game/reshuffle";
 
 export const drawCards = (game: Game, drawCount: number = 1): Card[] => {
   const drawnCards: Card[] = [];

@@ -1,5 +1,5 @@
-import type { Card } from "../../../types";
-import { isDrawCard, type DrawCardName } from "./isDrawCard";
+import type { Card } from "@/types";
+import { isDrawCard, type DrawCardName } from "@helpers/cards/isDrawCard";
 
 export const canStackOn = (top: Card, played: Card): boolean => {
   if (!isDrawCard(top) || !isDrawCard(played)) {

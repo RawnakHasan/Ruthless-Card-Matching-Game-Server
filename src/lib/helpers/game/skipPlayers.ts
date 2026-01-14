@@ -1,4 +1,4 @@
-import type { Game, Player } from "../../../types";
+import type { Game, Player } from "@/types";
 
 export const skipPlayers = (game: Game, playersToSkip: number = 1): Player => {
   const currentIndex = game.players.findIndex((p) => p.id === game.playerTurn);

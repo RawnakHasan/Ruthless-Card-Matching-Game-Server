@@ -1,5 +1,5 @@
-import { getGame, sendGameDataToClient } from "../lib/helpers/game";
-import { CustomSocket } from "../types";
+import { getGame, sendGameDataToClient } from "@helpers/game";
+import { CustomSocket } from "@/types";
 
 export const handleUpdateGame = (socket: CustomSocket) => {
   socket.on("updateGame", ({ roomId }) => {

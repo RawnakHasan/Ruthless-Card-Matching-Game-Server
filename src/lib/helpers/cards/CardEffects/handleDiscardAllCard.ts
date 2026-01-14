@@ -1,5 +1,5 @@
-import type { Card, CardColor, Game } from "../../../../types";
-import { getCurrentPlayer } from "../../game";
+import type { Card, CardColor, Game } from "@/types";
+import { getCurrentPlayer } from "@helpers/game";
 
 export const handleDiscardAllCard = (game: Game, color: CardColor) => {
   const currentPlayer = getCurrentPlayer(game);

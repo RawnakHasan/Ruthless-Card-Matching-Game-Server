@@ -1,4 +1,4 @@
-import type { Card, Game } from "../../../types";
+import type { Card, Game } from "@/types";
 
 export const dealCardsToPlayer = (
   game: Game,

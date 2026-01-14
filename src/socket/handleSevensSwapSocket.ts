@@ -1,9 +1,5 @@
-import {
-  getCurrentPlayer,
-  getGame,
-  sendGameDataToClient,
-} from "../lib/helpers/game";
-import { CustomSocket } from "../types";
+import { getCurrentPlayer, getGame, sendGameDataToClient } from "@helpers/game";
+import { CustomSocket } from "@/types";
 
 export const handleSevensSwapSocket = (socket: CustomSocket) => {
   socket.on("swapHands", ({ roomId, targetPlayerId }) => {

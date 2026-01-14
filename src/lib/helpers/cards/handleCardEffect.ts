@@ -1,4 +1,4 @@
-import type { Card, Game } from "../../../types";
+import type { Card, Game } from "@/types";
 import {
   handleDrawTwoCard,
   handleDrawFourCard,
@@ -11,7 +11,7 @@ import {
   handleDiscardAllCard,
   handleReverseDrawFourCard,
   handleColorRouletteCard,
-} from "./CardEffects";
+} from "@helpers/cards/CardEffects";
 
 export const handleCardEffect = (game: Game, card: Card) => {
   switch (card.type) {

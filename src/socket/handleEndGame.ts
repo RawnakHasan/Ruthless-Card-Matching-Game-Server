@@ -1,6 +1,6 @@
-import { io } from "..";
-import { Games } from "../games";
-import { CustomSocket } from "../types";
+import { Games } from "@/games";
+import { io } from "@/server";
+import { CustomSocket } from "@/types";
 
 export const handleEndGame = (socket: CustomSocket) => {
   socket.on("endGame", ({ roomId }) => {

@@ -1,5 +1,5 @@
-import { io } from "../../..";
-import type { Card, Game } from "../../../types";
+import { io } from "@/server";
+import type { Card, Game } from "@/types";
 
 export const getTopCard = (game: Game): Card => {
   const topCard = game.discardPile[game.discardPile.length - 1];

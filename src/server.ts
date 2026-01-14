@@ -1,5 +1,5 @@
 import { configDotenv } from "dotenv";
-import type { ClientToServerEvents, ServerToClientEvents } from "./types";
+import type { ClientToServerEvents, ServerToClientEvents } from "@/types";
 import { Server } from "socket.io";
 import {
   handleCreateGame,
@@ -11,12 +11,12 @@ import {
   handleStartGame,
   handleUpdateGame,
   hanldeJoinGame,
-} from "./socket";
-import { handleRoomExistence } from "./socket/handleRoomExistence";
+  handleRoomExistence,
+} from "@/socket";
 
 configDotenv();
 const PORT = Number(process.env.PORT);
-const ORIGIN = "https://ruthless-card-matching-game.vercel.app"
+const ORIGIN = process.env.CLIENT_URL;
 
 export const io = new Server<ClientToServerEvents, ServerToClientEvents>(PORT, {
   cors: {

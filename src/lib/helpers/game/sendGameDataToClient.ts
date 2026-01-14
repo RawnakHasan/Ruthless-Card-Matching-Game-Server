@@ -1,6 +1,6 @@
-import type { ClientGame, ClientPlayer, Game } from "../../../types";
-import { getPlayerWithPlayerId } from "./getPlayer";
-import { io } from "../../../index";
+import type { ClientGame, ClientPlayer, Game } from "@/types";
+import { getPlayerWithPlayerId } from "@helpers/game/getPlayer";
+import { io } from "@/server";
 
 export const sendGameDataToClient = (game: Game, roomId: string) => {
   const clientPlayers: ClientPlayer[] = game.players.map((player) => ({

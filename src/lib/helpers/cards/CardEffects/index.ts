@@ -1,17 +1,17 @@
 // Normal Cards
-export * from "./handleSevensSwap";
-export * from "./handleZerosPass";
+export * from "@helpers/cards/CardEffects/handleSevensSwap";
+export * from "@helpers/cards/CardEffects/handleZerosPass";
 
 // Action Cards
-export * from "./handleReverseCard";
-export * from "./handleSkipCard";
-export * from "./handleDrawTwoCard";
-export * from "./handleDrawFourCard";
-export * from "./handleSkipAllCard";
-export * from "./handleDiscardAllCard";
+export * from "@helpers/cards/CardEffects/handleReverseCard";
+export * from "@helpers/cards/CardEffects/handleSkipCard";
+export * from "@helpers/cards/CardEffects/handleDrawTwoCard";
+export * from "@helpers/cards/CardEffects/handleDrawFourCard";
+export * from "@helpers/cards/CardEffects/handleSkipAllCard";
+export * from "@helpers/cards/CardEffects/handleDiscardAllCard";
 
 // Wild Cards
-export * from "./handleReverseDrawFourCard";
-export * from "./handleDrawSixCard";
-export * from "./handleDrawTenCard";
-export * from "./handleColorRouletteCard";
+export * from "@helpers/cards/CardEffects/handleReverseDrawFourCard";
+export * from "@helpers/cards/CardEffects/handleDrawSixCard";
+export * from "@helpers/cards/CardEffects/handleDrawTenCard";
+export * from "@helpers/cards/CardEffects/handleColorRouletteCard";

@@ -1,5 +1,5 @@
-import { Card, Game } from "../../../types";
-import { getNextPlayer } from "../game";
+import { Card, Game } from "@/types";
+import { getNextPlayer } from "@helpers/game";
 
 export const turnUpdate = (game: Game, card: Card) => {
   // Determine if turn should advance

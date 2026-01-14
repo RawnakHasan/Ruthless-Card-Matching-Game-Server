@@ -1,4 +1,4 @@
-import type { Game } from "../../../types";
+import type { Game } from "@/types";
 
 export const updatePlayerTurn = (game: Game) => {
   const playerCount = game.players.length;

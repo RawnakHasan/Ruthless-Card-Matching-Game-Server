@@ -1,5 +1,5 @@
-import { io } from "../../../index";
-import type { Game, Player } from "../../../types";
+import { io } from "@/server";
+import type { Game, Player } from "@/types";
 
 export const getPlayerWithUsername = (game: Game, username: string): Player => {
   const playerWithUsername = game.players.find(

@@ -1,6 +1,6 @@
-import { io } from "..";
-import { createPlayer, getGame } from "../lib/helpers/game";
-import { CustomSocket } from "../types";
+import { createPlayer, getGame } from "@helpers/game";
+import { CustomSocket } from "@/types";
+import { io } from "@/server";
 
 export const hanldeJoinGame = (socket: CustomSocket) => {
   socket.on("joinGame", ({ username, roomId }) => {

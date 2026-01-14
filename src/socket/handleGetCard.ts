@@ -1,11 +1,11 @@
 import {
+  drawCards,
   getGame,
   getNextPlayer,
   getPlayerWithPlayerId,
   sendGameDataToClient,
-} from "../lib/helpers/game";
-import { drawCards } from "../lib/helpers/game/drawCards";
-import { CustomSocket } from "../types";
+} from "@helpers/game";
+import { CustomSocket } from "@/types";
 
 export const handleGetCard = (socket: CustomSocket) => {
   socket.on("getCard", ({ roomId, socketId }) => {

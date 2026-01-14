@@ -1,5 +1,5 @@
-import type { Game } from "../../../types";
-import { fisherYatesShuffle } from "./fisherYatesShuffle";
+import type { Game } from "@/types";
+import { fisherYatesShuffle } from "@helpers/game/fisherYatesShuffle";
 
 export const reshuffle = (game: Game) => {
   // Keep the top card, shuffle the rest back into the deck

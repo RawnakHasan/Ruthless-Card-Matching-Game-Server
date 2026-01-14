@@ -1,6 +1,5 @@
-import type { Game, WildCard } from "../../../../types";
-import { getNextPlayer, reshuffle } from "../../game";
-import { drawCards } from "../../game/drawCards";
+import type { Game, WildCard } from "@/types";
+import { getNextPlayer, reshuffle, drawCards } from "@helpers/game";
 
 export const handleColorRouletteCard = (game: Game, card: WildCard) => {
   const chosenColor = card.chosenColor;

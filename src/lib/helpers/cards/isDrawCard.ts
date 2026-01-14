@@ -1,4 +1,4 @@
-import type { Card } from "../../../types";
+import type { Card } from "@/types";
 
 export const DRAW_CARD_NAMES = [
   "Draw 2",

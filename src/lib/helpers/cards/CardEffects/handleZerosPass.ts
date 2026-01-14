@@ -1,4 +1,4 @@
-import type { Game } from "../../../../types";
+import type { Game } from "@/types";
 
 export const handleZerosPass = (game: Game) => {
   const players = game.players;

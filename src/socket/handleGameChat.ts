@@ -1,4 +1,4 @@
-import { CustomIo, CustomSocket } from "../types";
+import { CustomIo, CustomSocket } from "@/types";
 
 export const handleGameChat = (socket: CustomSocket, io: CustomIo) => {
   socket.on("sendMessage", ({ roomId, message, username }) => {

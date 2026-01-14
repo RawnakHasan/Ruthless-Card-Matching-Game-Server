@@ -1,7 +1,7 @@
-import { Games } from "../games";
-import { createPlayer } from "../lib/helpers/game";
-import { generateRoomId } from "../lib/roomIdGenerator";
-import { CustomSocket } from "../types";
+import { Games } from "@/games";
+import { createPlayer } from "@helpers/game";
+import { generateRoomId } from "@/lib/roomIdGenerator";
+import { CustomSocket } from "@/types";
 
 export const handleCreateGame = (socket: CustomSocket) => {
   socket.on("createGame", ({ username }) => {

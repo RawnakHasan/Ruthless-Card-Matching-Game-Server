@@ -1,12 +1,11 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "bun src/index.ts",
-    "start": "bun run src/index.ts",
-    "build": "echo 'No build step required'"  },
+    "dev": "bun src/server.ts",
+    "start": "bun run src/server.ts",
+    "build": "echo 'No build step required'"
+  },
   "dependencies": {
     "dotenv": "^17.2.3",
     "hono": "^4.10.8",
