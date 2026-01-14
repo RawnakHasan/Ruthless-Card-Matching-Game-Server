@@ -4,9 +4,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "dev": "bun --watch run src/index.ts"
-  },
+    "dev": "bun src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "echo 'No build step required'"  },
   "dependencies": {
     "dotenv": "^17.2.3",
     "hono": "^4.10.8",
