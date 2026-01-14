@@ -24,6 +24,8 @@ export const io = new Server<ClientToServerEvents, ServerToClientEvents>(PORT, {
   },
 });
 
+console.log(`Server Started at ${ORIGIN} with Port: ${PORT}`);
+
 io.on("connection", (socket) => {
   console.log(`User connected with ${socket.id}`);
 
