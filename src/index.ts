@@ -16,7 +16,7 @@ import { handleRoomExistence } from "./socket/handleRoomExistence";
 
 configDotenv();
 const PORT = Number(process.env.PORT);
-const ORIGIN = process.env.CLIENT_URL;
+const ORIGIN = "https://ruthless-card-matching-game.vercel.app/"
 
 export const io = new Server<ClientToServerEvents, ServerToClientEvents>(PORT, {
   cors: {
