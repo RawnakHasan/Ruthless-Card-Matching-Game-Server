@@ -31,6 +31,7 @@ export const handlePlayCard = (socket: CustomSocket) => {
 
     playCard(currentPlayer, game, card);
     turnUpdate(game, card);
+    socket.emit("cardPlayed");
 
     sendGameDataToClient(game, roomId);
   });
