@@ -12,6 +12,7 @@ import {
   handleUpdateGame,
   hanldeJoinGame,
   handleRoomExistence,
+  handleDisconnect,
 } from "@/socket";
 
 configDotenv();
@@ -41,7 +42,5 @@ io.on("connection", (socket) => {
 
   handleGameChat(socket, io);
 
-  socket.on("disconnect", () => {
-    console.log(`User with socket id ${socket.id} got disconnected`);
-  });
+  handleDisconnect(socket);
 });

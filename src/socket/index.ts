@@ -2,6 +2,7 @@ export { handleSevensSwapSocket } from "@/socket/handleSevensSwapSocket";
 export { handleRoomExistence } from "@/socket/handleRoomExistence";
 export { handleUpdateGame } from "@/socket/handleUpdateGame";
 export { handleCreateGame } from "@/socket/handleCreateGame";
+export { handleDisconnect } from "@/socket/handleDisconnect";
 export { handleStartGame } from "@/socket/handleStartGame";
 export { handleGameChat } from "@/socket/handleGameChat";
 export { handlePlayCard } from "@/socket/handlePlayCard";
