@@ -1,7 +1,11 @@
 import { Games } from "@/games";
 import { findGameBySocketId } from "@helpers/game/findGameBySocketId";
 import { CustomSocket } from "@/types";
-import { sendGameDataToClient, updatePlayerTurn } from "@/lib/helpers/game";
+import {
+  resetGame,
+  sendGameDataToClient,
+  updatePlayerTurn,
+} from "@/lib/helpers/game";
 
 export const handleDisconnect = (socket: CustomSocket) => {
   socket.on("disconnect", () => {
@@ -37,6 +41,9 @@ export const handleDisconnect = (socket: CustomSocket) => {
     // Handle empty game
     if (game.players.length === 0) {
       Games.delete(roomId);
+      console.log(
+        `Room with Room Id: ${roomId} got Deleted as no Player was Left`
+      );
       return;
     }
 
@@ -48,14 +55,11 @@ export const handleDisconnect = (socket: CustomSocket) => {
 
     if (game.players.length < 2) {
       game.gamePhase = "waiting";
-      game.discardPile = [];
-      game.deck = [];
-      game.drawCount = 0;
-      game.rotation = 1;
-      game.playerTurn = 0;
+      resetGame(game);
     }
 
     updatePlayerTurn(game);
+
     sendGameDataToClient(game, roomId);
   });
 };

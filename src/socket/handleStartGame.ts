@@ -6,7 +6,7 @@ import {
   getGame,
   sendGameDataToClient,
 } from "@helpers/game";
-import { CustomSocket } from "@/types";
+import { Card, CustomSocket, NormalCard } from "@/types";
 
 export const handleStartGame = (socket: CustomSocket) => {
   socket.on("startGame", ({ roomId }) => {
@@ -35,7 +35,17 @@ export const handleStartGame = (socket: CustomSocket) => {
     dealCardsToPlayer(game, shuffledDeck, 7);
 
     // First card from the deck is inserted into the discard Pile & rest of the cards are assigned to deck Pile
-    const topCard = shuffledDeck.shift()!;
+    const topCardIndex = shuffledDeck.findIndex(
+      (card): card is NormalCard => card.type === "Normal"
+    );
+
+    if (topCardIndex === -1) {
+      if (topCardIndex === -1) {
+        throw new Error("No valid starting card found");
+      }
+    }
+
+    const [topCard] = shuffledDeck.splice(topCardIndex, 1);
     game.discardPile = [topCard];
     game.deck = shuffledDeck;
 

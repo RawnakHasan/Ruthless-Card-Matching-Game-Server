@@ -1,4 +1,4 @@
-import { getGame, sendGameDataToClient } from "@helpers/game";
+import { getGame, resetGame, sendGameDataToClient } from "@helpers/game";
 import { CustomSocket } from "@/types";
 
 export const handleUpdateGame = (socket: CustomSocket) => {
@@ -6,6 +6,9 @@ export const handleUpdateGame = (socket: CustomSocket) => {
     // The Game instance is searched and prepared for sending to client
     const game = getGame(roomId, socket);
 
+    if (game.gamePhase === "finished") {
+      resetGame(game);
+    }
     // Game data Gets send to every Player in the same room
     sendGameDataToClient(game, roomId);
   });

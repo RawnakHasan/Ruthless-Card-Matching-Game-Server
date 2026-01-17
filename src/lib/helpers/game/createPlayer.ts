@@ -12,5 +12,8 @@ export const createPlayer = (
     username,
     hand: [],
     host: isHost,
+    status: {
+      type: "Playing",
+    },
   };
 };

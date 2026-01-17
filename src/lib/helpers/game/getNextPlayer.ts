@@ -2,21 +2,30 @@ import { io } from "@/server";
 import type { Game, Player } from "@/types";
 
 export const getNextPlayer = (game: Game): Player => {
-  const currentPlayerIndex = game.players.findIndex(
-    (player) => player.id === game.playerTurn
+  const totalPlayers = game.players.length;
+
+  let index = game.players.findIndex((player) => player.id === game.playerTurn);
+
+  if (index === -1) {
+    io.to(game.hostSocketId).emit("errors", "Current player not found");
+    return game.players[0];
+  }
+
+  let safety = 0;
+
+  do {
+    index = (index + game.rotation + totalPlayers) % totalPlayers;
+    safety++;
+  } while (
+    game.players[index].status.type !== "Playing" &&
+    safety < totalPlayers
   );
 
-  // Calculate next index with wrapping
-  // Add game.players.length to handle negative rotation properly
-  const nextPlayerIndex =
-    (currentPlayerIndex + game.rotation + game.players.length) %
-    game.players.length;
-
-  const nextPlayer = game.players[nextPlayerIndex];
-
-  if (!nextPlayer) {
-    io.to(game.hostSocketId).emit("errors", "Next Player Not Found!");
+  if (safety >= totalPlayers) {
+    io.to(game.hostSocketId).emit("errors", "No active players remaining");
   }
+
+  const nextPlayer = game.players[index];
 
   return nextPlayer!;
 };

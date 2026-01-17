@@ -1,6 +1,7 @@
 import type { ClientGame, ClientPlayer, Game } from "@/types";
-import { getPlayerWithPlayerId } from "@helpers/game/getPlayer";
+import { getPlayerWithPlayerId, resetGame } from "@helpers/game";
 import { io } from "@/server";
+import { calculateLeaderBoardPosition } from "@/lib/calculateLeaderBoardPosition";
 
 export const sendGameDataToClient = (game: Game, roomId: string) => {
   const clientPlayers: ClientPlayer[] = game.players.map((player) => ({
@@ -9,6 +10,7 @@ export const sendGameDataToClient = (game: Game, roomId: string) => {
     username: player.username,
     host: player.host,
     cardCount: player.hand.length,
+    status: player.status.type,
   }));
 
   const clientGame: ClientGame = {
@@ -20,6 +22,13 @@ export const sendGameDataToClient = (game: Game, roomId: string) => {
     hostSocketId: game.hostSocketId,
     players: clientPlayers,
   };
+
+  if (game.gamePhase === "finished") {
+    const leaderboard = calculateLeaderBoardPosition(game);
+    io.to(roomId).emit("leaderBoard", leaderboard);
+    resetGame(game);
+    return;
+  }
 
   io.to(roomId).emit("gameUpdate", clientGame);
 

@@ -30,6 +30,8 @@ export const handleCreateGame = (socket: CustomSocket) => {
       hostSocketId: socket.id,
       playerTurn: player.id,
       rotation: 1,
+      finishCount: 0,
+      eliminationCount: 0,
     });
 
     // Room Id gets Sent to Client to redirect the User to the same room Id dynamic Page

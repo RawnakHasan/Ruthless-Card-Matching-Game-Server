@@ -1,4 +1,6 @@
 import {
+  checkGameFinished,
+  checkPlayerElimination,
   drawCards,
   getGame,
   getNextPlayer,
@@ -24,13 +26,18 @@ export const handleGetCard = (socket: CustomSocket) => {
     const drawnCards = drawCards(game, totalDraw);
     player.hand.push(...drawnCards);
 
-    // ✅ CRITICAL: Reset drawCount AFTER drawing
+    // Reset drawCount AFTER drawing
     game.drawCount = 0;
 
     // Advance turn
     const { id: nextPlayerId } = getNextPlayer(game);
     game.playerTurn = nextPlayerId;
 
+    checkPlayerElimination(game, player);
+    checkGameFinished(game);
+
     sendGameDataToClient(game, roomId);
+
+    socket.emit("gotCard", { count: totalDraw });
   });
 };

@@ -5,6 +5,8 @@ export const turnUpdate = (game: Game, card: Card) => {
   // Determine if turn should advance
   let shouldAdvanceTurn = true;
 
+  const activePlayers = game.players.filter((p) => p.status.type === "Playing");
+
   if (card.type === "Action") {
     switch (card.name) {
       case "Skip":
@@ -18,7 +20,7 @@ export const turnUpdate = (game: Game, card: Card) => {
         break;
 
       case "Reverse":
-        shouldAdvanceTurn = game.players.length >= 3;
+        shouldAdvanceTurn = activePlayers.length >= 3;
         break;
 
       // All other action cards advance normally

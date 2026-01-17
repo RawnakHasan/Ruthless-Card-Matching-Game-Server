@@ -1,22 +1,29 @@
 import type { Game } from "@/types";
 
 export const handleZerosPass = (game: Game) => {
-  const players = game.players;
-  const count = players.length;
+  const activePlayers = game.players.filter((p) => p.status.type === "Playing");
 
+  const count = activePlayers.length;
   if (count < 2) return;
 
-  // tell TS: every player has a hand
-  const hands = players.map((p) => p.hand!);
+  // copy hands of ACTIVE players only
+  const hands = activePlayers.map((p) => [...p.hand]);
+
+  let rotatedHands: typeof hands;
 
   if (game.rotation === 1) {
-    hands.unshift(hands.pop()!);
+    // clockwise
+    rotatedHands = [
+      hands[hands.length - 1],
+      ...hands.slice(0, hands.length - 1),
+    ];
   } else {
-    hands.push(hands.shift()!);
+    // counter-clockwise
+    rotatedHands = [...hands.slice(1), hands[0]];
   }
 
-  players.forEach((player, i) => {
-    player.hand = hands[i]!;
+  activePlayers.forEach((player, i) => {
+    player.hand = rotatedHands[i];
   });
 };
 

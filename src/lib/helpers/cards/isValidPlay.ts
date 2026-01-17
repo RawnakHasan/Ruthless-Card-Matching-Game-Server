@@ -18,6 +18,10 @@ export const isValidPlay = (game: Game, playedCard: Card): boolean => {
     return canStackOn(topCard, playedCard);
   }
 
+  if (isDrawCard(topCard) && isDrawCard(playedCard)) {
+    if (canStackOn(topCard, playedCard)) return true;
+  }
+
   // 🎴 NORMAL VALIDATION (no active draw penalty)
   // At this point, drawCount is 0, so normal rules apply
 
