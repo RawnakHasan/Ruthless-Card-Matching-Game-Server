@@ -14,6 +14,6 @@ export const handleGameChat = (socket: CustomSocket, io: CustomIo) => {
     };
 
     // Broadcast to all clients in the room
-    io.to(roomId).emit("recieveMessage", newMessage);
+    socket.to(roomId).emit("recieveMessage", newMessage);
   });
 };
