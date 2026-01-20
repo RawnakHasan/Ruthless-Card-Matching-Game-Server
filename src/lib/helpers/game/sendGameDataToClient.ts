@@ -26,7 +26,6 @@ export const sendGameDataToClient = (game: Game, roomId: string) => {
   if (game.gamePhase === "finished") {
     const leaderboard = calculateLeaderBoardPosition(game);
     io.to(roomId).emit("leaderBoard", leaderboard);
-    resetGame(game);
     return;
   }
 
