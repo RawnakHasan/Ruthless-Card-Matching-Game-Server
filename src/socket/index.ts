@@ -9,3 +9,4 @@ export { handlePlayCard } from "@/socket/handlePlayCard";
 export { hanldeJoinGame } from "@/socket/handleJoinGame";
 export { handleGetCard } from "@/socket/handleGetCard";
 export { handleEndGame } from "@/socket/handleEndGame";
+export { handlePlayAgain } from "@/socket/handlePlayAgain";

@@ -13,6 +13,7 @@ import {
   hanldeJoinGame,
   handleRoomExistence,
   handleDisconnect,
+  handlePlayAgain,
 } from "@/socket";
 
 configDotenv();
@@ -38,6 +39,7 @@ io.on("connection", (socket) => {
   handleGetCard(socket);
   handlePlayCard(socket);
   handleSevensSwapSocket(socket);
+  handlePlayAgain(socket);
   handleEndGame(socket);
 
   handleGameChat(socket, io);
